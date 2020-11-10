@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+  <title>Text Box</title>
+
+
+
+  <body>
+    <input id = "textBox" type="text">
+    <button onclick="myFunction()">Click Here</button>
+    <div id = "displayBox"></div>
+
+  <script>
+  function myFunction(){
+  var userInput = document.getElementById("textBox").value;
+  document.getElementById("displayBox").innerHTML = userInput;
+}
+
+  </script>
+
+
+</body>
+</html>

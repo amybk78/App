@@ -5,11 +5,11 @@
 <style>
 body {
 font-family: Roboto;
-background: #8E0E00;
+background:  #33ccff;
 /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #8E0E00, #1F1C18);
+background: -webkit-linear-gradient(to left,  #33ccff, #004d66);
 /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #8E0E00, #1F1C18);
+background: linear-gradient(to left,  #33ccff, #004d66);
 /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
@@ -17,7 +17,7 @@ background: linear-gradient(to left, #8E0E00, #1F1C18);
 height: 520px;
 width: 360px;
 margin: 100px auto;
-background: #f7f7f7;
+background: #b3ecff;
 box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 border-radius: 20px;
 -webkit-border-radius: 20px;
@@ -25,7 +25,7 @@ border-radius: 20px;
 }
 
 h1 {
-background: #1F030C;
+background: #00bfff;
 color: white;
 margin: 0;
 padding: 10px 100px;
@@ -50,7 +50,6 @@ padding-left: 20px;
 
 #billamt {
 font-size: 14px;
-/*color: #2980b9;*/
 color: #red;
 background-color: #f7f7f7;
 width: 60%;
@@ -87,7 +86,7 @@ text-transform: uppercase;
 font-weight: bold;
 display: block;
 margin: 30px auto;
-background: #AD133A;
+background: #00bfff;
 border-radius: 5px;
 width: 200px;
 height: 50px;
@@ -96,7 +95,7 @@ color: white;
 }
 
 button:hover {
-background: #4c2827;
+background: #b3f0ff;
 border-bottom-color: #111;
 }
 
@@ -111,8 +110,7 @@ margin-top: 5px;
 text-align: center;
 }
 
-#totalTip:before {
-content: "Tip amount";
+#totalTip {
 font-size: 20px;
 font-weight: bold;
 display: block;
@@ -136,7 +134,6 @@ display: block;
     <h1>Tip Calculator</h1>
     <div id="calculator">
 
-
       <form>
         <p>How much was your bill?</p>
           <p>
@@ -156,11 +153,11 @@ display: block;
       </form>
       <p>How many people are sharing the bill?</p>
       <input id="peopleamt" type="text" placeholder="Number of People"> people
-      <button type="button" id="calculate">Calculate!</button>
-
+      <button type="button" id="calculate" onclick = "calculateTip()">Calculate!</button>
     </div>
     <!--calculator end-->
     <div id="totalTip">
+      Tip Amount <br />
       <sup>$</sup><span id="tip">0.00</span>
       <small id="each">each</small>
     </div>
@@ -169,49 +166,51 @@ display: block;
   </div>
   <!--container end-->
 
-  <script type="text/javascript" src="tipcalculator.js"></script>
+  <!-- <script type="text/javascript" src="tipcalculator.js"></script> -->
 
   <script>
-  / /calculate tip
+  <!--calculate tip-->
   function calculateTip() {
-    var billAmt =
-  document.getElementById("billamt").value;
-    var serviceQual =
-  document.getElementById("serviceQual").value;
-    var numOfPeople =
-  document.getElementById("peopleamt").value;
-  //validate input
-  if(billAmt === "" || serviceQual == 0){
-    alert("Please enter values");
-    return;
-  }
-  / / check to see if this input is empty or less than or equal to 1
-  if (numOfPeople === "" || numOfPeople <=1){
-    numOfPeople = 1;
+    var billAmt = document.getElementById("billamt").value;
+    var serviceQual = document.getElementById("serviceQual").value;
+    var numOfPeople = document.getElementById("peopleamt").value;
 
-document.getElementById("each").style.display
-= "none";
-}else{
-  document.getElementById("each").style.display
-  = "block";
-  }
-  //calculate tip
-  var total = (billAmt * serviceQual) /
-  numOfPeople;
-  //round to two decimal places
-  total = Math.round(total * 100) / 100;
-  //next line allow us to always have two digits after decimal point
-  total = total.toFixed(2);
-  //display the tip
-  document.getElementById("totalTip").style.display = "block";
-  document.getElementById("tip").innerHTML = total;
-  //line 29
+    <!--validate input-->
+    if(billAmt === "" || serviceQual == 0){
+      alert("Please enter values");
+      return;
+    }
 
+   <!--check to see if this input is empty or less than or equal to 1-->
+    if (numOfPeople === "" || numOfPeople <=1)  {
+      numOfPeople = 1;
 
-  //Hide the tip amount on load
-  document.getElementById("totalTip").style.display = "none";
-  document.getElementById ("each").style.display = "none";
+      // document.getElementById("each").style.display
+      // = "none";
+      // } else {
+      // document.getElementById("each").style.display
+      // = "block";
+    }
+    //calculate tip
+    var total = (billAmt * serviceQual) / numOfPeople;
+
+    //round to two decimal places
+    total = Math.round(total * 100) / 100;
+
+    //next line allow us to always have two digits after decimal point
+    total = total.toFixed(2);
+
+    //display the tip
+    document.getElementById("totalTip").style.display = "block";
+    document.getElementById("tip").innerHTML = total;
+
+    //line 29
+
+    //Hide the tip amount on load
+    // document.getElementById("totalTip").style.display = "none";
+    // document.getElementById ("each").style.display = "none";
   }
+
   </script>
 
 </body>
