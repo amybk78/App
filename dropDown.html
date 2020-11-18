@@ -1,14 +1,27 @@
 <html>
-  <div class ="dropdown">
-      <button onclick = "myFunction()"
-        class = "dropbtn"> dropdown </button>
-  <div id = "myDropdown" class = "dropdown - content">
-      <a href = "#"> Link 1 </a>
-      <a href = "#"> Link 2 </a>
-      <a href = "#"> Link 3 </a>
-  </div>
-  </div>
-  <style>
+
+
+<p>Simple DropDown Box</p>
+<select id="humanChoice">
+    <option value="Rock">Rock</option>
+    <option value="Paper">Paper</option>
+    <option value="Scissors">Scissors</option>
+</select>
+
+<br /><br />
+<input disabled type="text" id = "choice" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function()  {
+      console.log("ready");
+
+      $("#humanChoice").on("change", function(){
+        $("#choice").val($(this).val());
+      })
+    })
+
+
     function myFunction () {
       document.getElementById ("myDropdown").classList.toggle ("show");
     }
@@ -16,9 +29,9 @@
     if (!event.target.matches('.dropbtn')){
       var dropdown = document.getElementsByClassName("dropdown-content");
       var i;
-      
+
     }
   }
 
-  </style>
+  </script>
 </html>
