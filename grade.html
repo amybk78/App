@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+  <title>Calculate Grade</title>
+
+  <style>
+
+  </style>
+
+  	<body>
+
+  		<p> Enter Grades </p>
+  		<p> First Nine Weeks Grade  <input type="text" id="userInput1"></input></p>
+      	<p> Second Nine Weeks Grade  <input type="text" id="userInput2"></input></p>
+      	<button id="averageButton"> Calculate Semester </button>
+
+        <script type="text/javascript">
+
+
+
+
+          var getSemesterGrade = function(){
+            var firstNineWeeks  = document.getElementById("userInput1").value;
+            var secondNineWeeks = document.getElementById("userInput2").value;
+            var gradeValue = (parseInt(firstNineWeeks) + parseInt(secondNineWeeks))/2;
+
+            switch (true) {
+              case (gradeValue <= 100 && gradeValue >=94):
+              return "A";
+              break;
+              case (gradeValue <=93 && gradeValue >=90):
+              return "A-";
+              break;
+              case (gradeValue <=89 && gradeValue >=87):
+              return "B+";
+              break;
+              case (gradeValue <=86 && gradeValue >=84):
+              return "B";
+              break;
+              case (gradeValue <=83 && gradeValue >=80):
+              return "B-";
+              break;
+              case (gradeValue <= 79 && gradeValue >=77):
+              return "C+";
+              break;
+              case (gradeValue <=76 && gradeValue >=74):
+              return "C";
+              break;
+              case (gradeValue <=73 && gradeValue >=70):
+              return "C-";
+              break;
+              case (gradeValue <=69 && gradeValue >=67):
+              return "D+";
+              break;
+              case (gradeValue <=66 && gradeValue >=60):
+              return "D";
+              break;
+              default: return "F";
+            }
+          }
+
+          document.getElementById("averageButton").onclick = function (){
+              alert(getSemesterGrade());
+          }
+
+
+        </script>
+
+</body>
+</html>
